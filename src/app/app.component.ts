@@ -8,6 +8,14 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export default class AppComponent {
   title = 'angular-reservation';
+
+  isSearchPanelOpen: boolean = false;
+
+  // Aquí puedes añadir la lógica de openSearchPanel si es necesario
+  openSearchPanel() {
+    this.isSearchPanelOpen = true;
+    // Lógica adicional que quieras implementar
+  }
 }

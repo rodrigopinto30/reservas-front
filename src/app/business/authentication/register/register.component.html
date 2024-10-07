@@ -1,0 +1,88 @@
+<div class="min-h-screen bg-blue-400 flex justify-center items-center">
+    <div class="absolute w-60 h-60 rounded-xl bg-blue-300 -top-5 -left-16 z-0 transform rotate-45 hidden md:block"></div>
+    <div class="absolute w-48 h-48 rounded-xl bg-blue-300 bottom-8 right-10 transform rotate-12 hidden md:block"></div>
+    <form 
+      (ngSubmit)="register($event)" 
+      class="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
+      <div>
+        <h1 class="text-3xl font-bold text-center mb-4 cursor-pointer">Registrarme</h1>
+        <p class="w-80 text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide cursor-pointer">Registrate para poder agendar todos tus eventos!!!</p>
+      </div>
+      <div class="space-y-4">
+        <input 
+          [(ngModel)]="name" 
+          name="name" 
+          required 
+          type="text" 
+          placeholder="Nombre" 
+          class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+          style="letter-spacing: 0.1em;" 
+        />
+        <input 
+          [(ngModel)]="lastName" 
+          name="lastName" 
+          required 
+          type="text" 
+          placeholder="Apellido" 
+          class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+          style="letter-spacing: 0.1em;" 
+        />
+        <input 
+          [(ngModel)]="email" 
+          name="email" 
+          required 
+          type="email" 
+          placeholder="Correo electrónico" 
+          class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+          style="letter-spacing: 0.1em;" 
+        />
+        <select 
+          [(ngModel)]="rol"
+          class="block bg-white  text-sm py-3 px-4 rounded-lg w-full border outline-blue-500"
+          name="rol" 
+          style="letter-spacing: 0.1em;" 
+        >
+          <option value="customer" style="letter-spacing: 0.1em;" >Customer</option>
+          <option value="admin">Admin</option>
+        </select>
+        <input 
+          [(ngModel)]="password" 
+          name="password" 
+          required 
+          type="password" 
+          placeholder="Contraseña" 
+          class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+          style="letter-spacing: 0.1em;" 
+        />
+        <input 
+          [(ngModel)]="confirmPassword" 
+          name="confirmPassword" 
+          required 
+          type="password" 
+          placeholder="Confirmar Contraseña" 
+          class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+          style="letter-spacing: 0.1em;" 
+        />
+        <p *ngIf="passwordMismatch" class="text-red-500 text-sm">
+          Las contraseñas no coinciden
+        </p>
+      </div>
+      
+      <div class="text-center mt-6">
+        <button 
+          type="submit" 
+          class="w-full py-2 text-xl text-white bg-blue-400 rounded-lg hover:bg-blue-500 transition-all"
+          >Registrarme
+        </button>
+      </div>
+      <div class="text-center mt-6">
+        <p class="mt-4 text-sm">¿Ya tenes una cuenta? 
+          <a routerLink="/login">
+            <span class="underline  cursor-pointer">Iniciar sesion</span>
+          </a>
+        </p>
+      </div>
+    </form>
+    <div class="w-40 h-40 absolute bg-blue-300 rounded-full top-0 right-12 hidden md:block"></div>
+    <div class="w-20 h-40 absolute bg-blue-300 rounded-full bottom-20 left-10 transform rotate-45 hidden md:block"></div>
+  </div>
