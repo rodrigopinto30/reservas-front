@@ -3,6 +3,7 @@ import { UserService } from '../../functions/user/user.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SpaceService } from '../../functions/space/space.service';
+import { ReservationService } from '../../functions/reservation/reservation.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,30 +15,48 @@ import { SpaceService } from '../../functions/space/space.service';
 
 export default class DashboardComponent {
   users: any[] = [];
-  spaces: any[] =[];
+  spaces: any[] = [];
+  reservations: any[] = [];
+  activeReservations: any[] = [];
 
-  constructor(private userService: UserService, private spaceService: SpaceService){}
+  constructor(private userService: UserService, private spaceService: SpaceService, private reservationService: ReservationService) { }
 
   ngOnInit(): void {
     this.loadUsers();
     this.loadSpaces();
+    this.loadReservation();
+    this.loadActiveReservation();
   }
 
   loadUsers(): void {
     this.userService.getUsers().subscribe({
-      next: (users) =>{this.users = users; },
+      next: (users) => { this.users = users; },
       error: (error) => {
-        // console.log("Error al obtener los datos", error);
       }
     })
   }
 
   loadSpaces(): void {
     this.spaceService.getSpaces().subscribe({
-      next:(spaces) => {this.spaces = spaces; console.log(spaces)},
+      next: (spaces) => { this.spaces = spaces },
       error: (error) => {
-
       }
+    });
+  }
+
+  loadReservation(): void {
+    this.reservationService.getReservations().subscribe({
+      next: (reservations) => { this.reservations = reservations },
+      error: (error) => { }
+    });
+  }
+
+  loadActiveReservation(): void {
+    this.reservationService.getActiveReservations().subscribe({
+      next: (activeReservations) => { 
+        this.activeReservations = activeReservations;
+      },
+      error: (error) => { }
     });
   }
 }
