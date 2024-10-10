@@ -4,7 +4,9 @@
     <app-sidebar />
       <!-- end sidebar -->
 
-  <main class="w-full md:w-[calc(100%-256px)] md:ml-64 bg-gray-200 min-h-screen transition-all main">
+  <main class="w-full  bg-gray-200 min-h-screen transition-all main"
+    [ngClass]="{'ml-0 w-full': !isOpen, 'md:w-[calc(100%-256px)] md:ml-64': isOpen}"
+  >
       <!-- navbar -->
         <app-header />
       <!-- end navbar -->

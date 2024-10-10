@@ -18,6 +18,7 @@ export default class DashboardComponent {
   spaces: any[] = [];
   reservations: any[] = [];
   activeReservations: any[] = [];
+  finishedReservations: any[] = [];
 
   constructor(private userService: UserService, private spaceService: SpaceService, private reservationService: ReservationService) { }
 
@@ -26,6 +27,7 @@ export default class DashboardComponent {
     this.loadSpaces();
     this.loadReservation();
     this.loadActiveReservation();
+    this.loadFinishedReservation();
   }
 
   loadUsers(): void {
@@ -58,5 +60,12 @@ export default class DashboardComponent {
       },
       error: (error) => { }
     });
+  }
+
+  loadFinishedReservation(): void {
+    this.reservationService.getFinishedReservations().subscribe({
+      next:(finishedReservations) => {this.finishedReservations = finishedReservations},
+      error: (error) => {console.log(error)}
+    })
   }
 }
