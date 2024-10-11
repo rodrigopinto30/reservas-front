@@ -33,7 +33,6 @@ export default class LoginComponent {
   openModal(message:string): void {
     this.showModal = true;
     this.messageModal = message;
-    // console.log("Abriendo el modal con mensaje:", message); 
     
   }
 
@@ -49,7 +48,6 @@ export default class LoginComponent {
     this.authService.login(this.email, this.password).subscribe({
       next: () => this.router.navigate(['/dashboard']),
       error: (error) => {
-        this.openModal("error");
       }
     })
   }
