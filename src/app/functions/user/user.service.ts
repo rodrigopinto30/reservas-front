@@ -12,14 +12,22 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<any[]>{
-
+  lastUser(): Observable<any[]>{
     const token = localStorage.getItem(this.tokenkey);
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content.Type': 'application/json'
     });
+    return this.http.get<any[]>(`${this.API_URL}/lastUser`, {headers});
+  }
 
+  allUser(): Observable<any[]>{
+    const token = localStorage.getItem(this.tokenkey);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content.Type': 'application/json'
+    });
     return this.http.get<any[]>(this.API_URL, {headers});
   }
+
 }

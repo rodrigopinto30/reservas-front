@@ -31,8 +31,8 @@ export default class DashboardComponent {
   }
 
   loadUsers(): void {
-    this.userService.getUsers().subscribe({
-      next: (users) => { this.users = users; },
+    this.userService.lastUser().subscribe({
+      next: (users) => { this.users = users},
       error: (error) => {
       }
     })

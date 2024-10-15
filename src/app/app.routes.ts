@@ -13,6 +13,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./business/dashboard/dashboard.component')
             },
             {
+                path: 'user',
+                loadChildren: () => import('./business/user/user-routing.module').then(m => m.UserRoutingModule) 
+            },
+            {
                 path: 'profile',
                 loadComponent: ()=> import('./business/profile/profile.component')
             },
