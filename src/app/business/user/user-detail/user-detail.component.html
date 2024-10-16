@@ -1,1 +1,88 @@
-<p>user-detail works!</p>
+<div class="grid">
+    <div class="p-4 flex">
+        <h1 class="text-3xl">
+            Editar usuario
+        </h1>
+    </div>
+    <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+        <div class="flex justify-center mb-6">
+            <form class="w-[30%]"
+            (ngSubmit)="updateUser($event)" 
+             >
+            <div class="space-y-4">
+              <input 
+                [(ngModel)]="user.name" 
+                name="name" 
+                type="text" 
+                placeholder="Nombre" 
+                class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+                style="letter-spacing: 0.1em;" 
+                value={{user.name}}
+              />
+              <input 
+                [(ngModel)]="user.lastName" 
+                name="lastName" 
+                type="text" 
+                placeholder="Apellido" 
+                class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+                style="letter-spacing: 0.1em;" 
+                value={{user.lastName}}
+              />
+              <input  
+                [(ngModel)]="user.email" 
+                name="email" 
+                type="email" 
+                placeholder="Correo electrónico" 
+                class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+                style="letter-spacing: 0.1em;" 
+                value="{{user.email}}"
+              />
+              <select 
+                class="block bg-white  text-sm py-3 px-4 rounded-lg w-full border outline-blue-500"
+                [(ngModel)]="user.rol" 
+                name="rol" 
+                style="letter-spacing: 0.1em;" 
+              >
+                <option 
+                    value="customer" 
+                    style="letter-spacing: 0.1em;" 
+                >
+                    Customer
+                </option>
+                <option 
+                    value="admin"
+                >
+                    Admin
+                </option>
+              </select>
+              <input 
+                [(ngModel)]="user.password" 
+                name="password" 
+                type="password" 
+                placeholder="Contraseña" 
+                class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+                style="letter-spacing: 0.1em;" 
+              />
+              <input 
+                [(ngModel)]="user.password_confirmation"
+                name="password_confirmation" 
+                type="password" 
+                placeholder="Confirmar Contraseña" 
+                class="block text-sm py-3 px-4 rounded-lg w-full border outline-blue-500" 
+                style="letter-spacing: 0.1em;" 
+              />
+            </div>
+            
+            <div class="text-center mt-6">
+              <button 
+                type="submit" 
+                class="w-full py-2 text-xl text-white bg-blue-400 rounded-lg hover:bg-blue-500 transition-all"
+                >
+                Modificar
+              </button>
+            </div>
+            
+          </form>
+        </div>
+    </div>
+</div>
