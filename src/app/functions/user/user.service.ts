@@ -53,6 +53,15 @@ export class UserService {
         }
       })
     );
-  
+  }
+
+  deleteUser(id:number): Observable<any[]> {
+    const token = localStorage.getItem(this.tokenkey);
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.delete<any[]>(`${this.API_URL}/${id}`, {headers}).pipe();
   }
 }

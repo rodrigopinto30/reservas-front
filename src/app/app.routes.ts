@@ -17,6 +17,10 @@ export const routes: Routes = [
                 loadChildren: () => import('./business/user/user-routing.module').then(m => m.UserRoutingModule) 
             },
             {
+                path: 'space',
+                loadChildren: () => import('./business/space/space-routing.module').then(m => m.SpaceRoutingModule) 
+            },
+            {
                 path: 'profile',
                 loadComponent: ()=> import('./business/profile/profile.component')
             },

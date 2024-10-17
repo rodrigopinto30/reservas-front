@@ -27,4 +27,12 @@ export default class UserListComponent {
       error: (error) => {}
     });
   }
+
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id).subscribe(
+      res=>this.userService.allUser().subscribe(
+        response=>this.allUser = response
+      )
+    );
+  }
 }
